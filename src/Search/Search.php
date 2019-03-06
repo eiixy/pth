@@ -1,10 +1,10 @@
 <?php
 namespace Pth\Search;
 
-use Pth\Contract\ISearch;
+use Pth\Contracts\ISearch;
 use Elasticsearch\ClientBuilder;
 
-abstract class Search implements ISearch
+class Search implements ISearch
 {
     protected $es;  // ElasticSearch 实例
     protected $index = [];  // 默认索引
@@ -12,7 +12,7 @@ abstract class Search implements ISearch
 
     public function __construct()
     {
-        $hosts = config('es.hosts');
+        $hosts = config('elasticsearch.hosts');
         $this->es = ClientBuilder::create()
             ->setHosts([$hosts])
             ->setRetries(2) //设置重试次数
@@ -29,6 +29,8 @@ abstract class Search implements ISearch
      */
     public function search($query, $filter = [], $page = 1, $limit = 10): Array
     {
+        $hosts = config('elasticsearch.hosts');
+        return $hosts;
         $params = $this->getParams($query, $filter, $page, $limit);
         $data = $this->es->search($params);
         return $this->resolve($data);

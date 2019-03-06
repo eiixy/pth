@@ -4,14 +4,19 @@ return [
 
     ],
     'redis'         =>  [
-
+        'host'      =>  '',
+        'port'      =>  ''
     ],
+    /**
+     * 异常
+     */
     'exceptions'    =>  [
         [
             'class'     =>  \Pth\Exceptions\RedisException::class,
             'option'    =>  [
+                'msg'   =>  '',
+                'code' =>  '',
                 'level' =>  '',
-                'msg'   =>  ''
             ]
         ],
         [
@@ -23,7 +28,15 @@ return [
         ]
 
     ],
-    'webhook'       =>  [
-
+    /**
+     * 消息通知
+     */
+    'notifications' =>  [
+        'dingtalk'       =>  [
+            'webhook'  =>  'https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxx'
+        ],
+        'email'  =>  [
+            ''  =>  ''
+        ]
     ]
 ];
