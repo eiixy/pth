@@ -33,7 +33,14 @@ return [
      */
     'notifications' =>  [
         'dingtalk'       =>  [
-            'webhook'  =>  'https://oapi.dingtalk.com/robot/send?access_token=xxxxxxxx'
+            'webhook'   =>  'https://oapi.dingtalk.com/robot/send?access_token=b092e8ceca15df5d16818e9ddad5fbe40eaab2dae78a984f5ad0a5460bf12c82',
+            'msgtype'   =>  'markdown',
+            'at'        =>  [
+                'atMobiles' =>  [
+
+                ],
+                'isAtAll'   => false
+            ]
         ],
         'email'  =>  [
             ''  =>  ''

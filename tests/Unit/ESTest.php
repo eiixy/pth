@@ -10,6 +10,7 @@ namespace Tests\Unit;
 
 
 use PHPUnit\Framework\TestCase;
+use Pth\Notifications\Notification;
 use Pth\Search\Search;
 
 class ESTest extends TestCase
@@ -17,6 +18,7 @@ class ESTest extends TestCase
 
     public function testA()
     {
+        new Notification();
         $stack = new Search();
         $this->assertEmpty($stack->search(''));
         dd($stack->search(''));
