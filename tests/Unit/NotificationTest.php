@@ -10,16 +10,18 @@ namespace Tests\Unit;
 
 
 use PHPUnit\Framework\TestCase;
+use Pth\Notifications\Dingtalk;
 use Pth\Notifications\Notification;
 use Pth\Search\Search;
 
-class ESTest extends TestCase
+class NotificationTest extends TestCase
 {
 
     public function testA()
     {
-
-        $this->assertEmpty('');
-
+        $notify = new Dingtalk();
+        $response = $notify->send(1);
+        dd($response);
+        $this->assertIsBool(true);
     }
 }

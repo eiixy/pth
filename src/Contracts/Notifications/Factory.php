@@ -11,6 +11,5 @@ namespace Pth\Contracts\Notifications;
 
 interface Factory
 {
-
     public function send();
 }
